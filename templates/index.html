@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NER App</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Named Entity Recognition</h1>
+        <form action="/entity" method="post" enctype="multipart/form-data">
+            <label for="file">Choose a file:</label>
+            <input type="file" name="file">
+            <label for="text">Or enter text:</label>
+            <textarea name="text" placeholder="Type text here..."></textarea>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if entities %}
+        <div class="results">
+            <h2>Recognized Entities</h2>
+            {{ entities|safe }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
